@@ -2,10 +2,10 @@
   "name": "nightlife-coordination-app",
   "version": "1.0.0",
   "description": "app to find a bar at your city ",
-  "main": "./app/client/server/server.js",
+  "main": "./app/server/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./app/client/server/server.js",
+    "start": "node ./app/server/server.js",
     "dev": "nodemon app.js",
     "webpack": "webpack --config webpack.config.js",
     "watch": "webpack --watch"
