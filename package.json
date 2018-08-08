@@ -1,0 +1,35 @@
+{
+  "name": "nightlife-coordination-app",
+  "version": "1.0.0",
+  "description": "app to find a bar at your city ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "webpack": "webpack --config webpack.config.js",
+    "watch": "webpack --watch"
+  },
+  "author": "Jefferson Oliveira",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "nodemon": "^1.18.3",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "pug": "^2.0.3",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-redux": "^5.0.7",
+    "react-router": "^4.3.1",
+    "redux": "^4.0.0"
+  }
+}
