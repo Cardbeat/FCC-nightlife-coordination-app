@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const path = require('path');
-const authRoutes = require('./oauth-routes.js');
+const passportSetup = require('./passport-setup');
+const authRoutes = require('./oauth-routes');
 
 
 const app = express();
