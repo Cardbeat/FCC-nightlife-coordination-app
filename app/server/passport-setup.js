@@ -4,8 +4,9 @@ const keys = require('./keys')
 
 passport.use(
     new GoogleStrategy({
+    // change to full path when prod    
     // options for the google strat
-    callbackURL: 'https://sleepy-savannah-47566.herokuapp.com/oauth/google/redirect',
+    callbackURL: '/oauth/google/redirect',
     clientID: keys.google.clientID ,
     clientSecret: keys.google.clientSecret
     }, () => {
