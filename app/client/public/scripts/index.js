@@ -1,18 +1,19 @@
 import React from 'react';
 import { render } from 'react-dom';
+import Display from './components/Display.js';
 
 
 
-export default class Welcome  extends React.Component {
+export default class App  extends React.Component {
     render() {
       return(
         <div>
-          <h1> ola </h1>
+          < Display />
         </div>
       )
     }
   }
   
 
-render(< Welcome />, document.getElementById('app'))
+render(< App />, document.getElementById('app'))
   

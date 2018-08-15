@@ -1,14 +1,19 @@
-const express = require('express')
-const bodyParser = require('body-parser')
-const path = require('path')
+const express = require('express');
+const bodyParser = require('body-parser');
+const path = require('path');
+const authRoutes = require('./oauth-routes.js');
 
 
 const app = express();
 const port = process.env.PORT || 3000;
 
+
+app.use('/oauth', authRoutes);
+
+
 app.get('/', (req, res) => {
-    res.render('index')
-})
+    res.render('index');
+});
 
 app.set('view engine', 'pug');
 app.set('views','./app/client/public/views/');
