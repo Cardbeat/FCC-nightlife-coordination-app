@@ -2,6 +2,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const passportSetup = require('./passport-setup');
 const authRoutes = require('./oauth-routes');
+const mongoose = require('mongoose');
+const keys = require('./keys');
+
+
+//connect to mongodb
+mongoose.connect(keys.mongodb.dbURI, () => {
+    console.log('connected to mongodb');
+})
 
 
 const app = express();
