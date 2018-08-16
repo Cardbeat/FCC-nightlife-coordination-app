@@ -1,2 +1,2 @@
 /node_modules
-./app/server/keys.js
+/app/server/keys.js
