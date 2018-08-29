@@ -34,6 +34,11 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
+app.get('/user', (req, res) => {
+    let user = req.isAuthenticated()
+    res.send(user);
+});
+
 app.set('view engine', 'pug');
 app.set('views','./app/client/public/views/');
 app.use(bodyParser.urlencoded({ extended: false }));
