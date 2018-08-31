@@ -1,6 +1,6 @@
 import React , { Component } from 'react';
 
-export default class Body extends Component  {
+export default class Home extends Component  {
     constructor() {
         super()
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -21,9 +21,13 @@ export default class Body extends Component  {
     }
     render() {
         return (
-            <div>
+            <div className="search">
                <form onSubmit={this.handleSubmit}>
-               <input id="data" type="text"  />
+               <label>
+                   search:
+                   <input id="data" type="text"  />
+               </label>
+               <input type="submit" value="Submit" />
                </form>
             </div>
         )

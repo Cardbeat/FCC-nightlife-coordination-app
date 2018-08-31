@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {Route, Link } from 'react-router-dom';
+import Favorites from './Favorites';
 
 
 export default class Header extends Component {
@@ -24,7 +26,7 @@ export default class Header extends Component {
         let status;
         if(this.state.user) {
            status =  <div>
-                <li><a href="/fav">favorites</a></li>
+                <li><Link to="/fav">favorites</Link></li>
                 <li><a href="/oauth/logout">logout</a></li>
                 </div>
         } else {
