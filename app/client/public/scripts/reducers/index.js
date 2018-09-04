@@ -11,7 +11,7 @@ const rootReducer = ( state=initialState, action ) => {
         case ADD_RESULTS:
             return {
                 ...state,
-                results: state.results.concat(action.results)
+                results: action.results
             }
         default:
             return state;

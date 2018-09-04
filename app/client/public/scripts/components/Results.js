@@ -1,9 +1,27 @@
 import React, { Component } from 'react';
+import Search from './Search';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-export default class Results extends Component {
+
+const mapStateToProps = state => {
+    return { results: state.results }
+}
+
+ class Results extends Component {
     render() {
         return (
-            <h1>this is results</h1>
+            <div>
+                < Search />
+                <ul>
+                    {this.props.results.map((result, index) => <li key={index}>{result.name}</li>)}
+                </ul>
+            </div>
         )
     }
 }
+
+const ResultList = connect(mapStateToProps)(Results)
+
+
+export default ResultList; 

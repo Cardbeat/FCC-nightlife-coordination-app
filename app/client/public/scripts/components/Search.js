@@ -1,7 +1,6 @@
 import React , { Component } from 'react';
 import { connect } from 'react-redux';
 import { addResults } from '../actions/index';
-import { Redirect } from 'react-router';
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -9,12 +8,9 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
- class HomePage extends Component  {
+ class SearchList extends Component  {
     constructor() {
         super()
-        this.state = {
-            toResults: false
-        }
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
@@ -30,18 +26,12 @@ const mapDispatchToProps = dispatch => {
                 'Content-type': 'application/json'
               }
         }).then(result => result.json().then(data => 
-            this.props.addResults(data),
-            this.setState({
-                toResults: true
-            })
+            this.props.addResults(data)
         ))
     }
     render() {
-        if(this.state.toResults === true ) {
-            return <Redirect to='/results' />
-        }
         return (
-            <div className={this.props.position}>
+            <div className="top">
                <form onSubmit={this.handleSubmit}>
                <label>
                    search:
@@ -54,6 +44,6 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-const Home = connect(null, mapDispatchToProps)(HomePage)
+const Search = connect(null, mapDispatchToProps)(SearchList)
 
-export default Home 
+export default Search 

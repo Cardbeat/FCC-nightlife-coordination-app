@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const keys = require('./keys');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
+const path = require('path');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -21,25 +22,32 @@ app.use(cookieSession({
 app.use(passport.initialize());
 app.use(passport.session());
 
-//connect to mongodb
+//connect to mongodbS
 mongoose.connect(keys.mongodb.dbURI, () => {
     console.log('connected to mongodb');
 })
-
-
-
-app.use('/oauth', authRoutes);
-app.use('/yelp', yelpSearch);
 
 
 app.get('/', (req, res) => {
     res.render('index');
 });
 
+app.get('/results', function(req, res) {
+    res.render('index')
+  })
+
+app.get('/fav', function(req, res) {
+   res.render('index')
+  })
+
 app.get('/user', (req, res) => {
     let user = req.isAuthenticated()
     res.send(user);
 });
+
+
+app.use('/oauth', authRoutes);
+app.use('/yelp', yelpSearch);
 
 
 app.set('view engine', 'pug');

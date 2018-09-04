@@ -1,6 +1,6 @@
 import { ADD_RESULTS } from './constants/action-types';
 
-export const addFavorite = results => ({ 
+export const addResults = results => ({ 
     type: ADD_RESULTS , 
     results: results 
 });
