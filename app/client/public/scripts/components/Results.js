@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Search from './Search';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import Card from './Card';
 
 
 const mapStateToProps = state => {
@@ -10,11 +11,13 @@ const mapStateToProps = state => {
 
  class Results extends Component {
     render() {
+        const names = this.props.results.map((result, index) =>
+        <li key={index}>< Card info={result} /></li>)
         return (
             <div>
                 < Search />
                 <ul>
-                    {this.props.results.map((result, index) => <li key={index}>{result.name}</li>)}
+                    {names}
                 </ul>
             </div>
         )
