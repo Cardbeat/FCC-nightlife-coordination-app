@@ -11,13 +11,13 @@ const mapStateToProps = state => {
 
  class Results extends Component {
     render() {
-        const names = this.props.results.map((result, index) =>
+        const results = this.props.results.map((result, index) =>
         <li key={index}>< Card info={result} /></li>)
         return (
             <div>
                 < Search />
                 <ul>
-                    {names}
+                    {results}
                 </ul>
             </div>
         )
