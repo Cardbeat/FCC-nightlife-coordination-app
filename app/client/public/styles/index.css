@@ -13,9 +13,11 @@
 
 #card {
     margin: auto;
+    margin-top: 5px;
     width: 80%;
     padding: 10px;
     border: solid;
+    border-radius: 25px;
 }
 
 img {
