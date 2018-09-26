@@ -22,7 +22,7 @@ class Card extends Component {
     
     componentWillMount() {
         this.props.favs.map((fav) => {
-            if(fav.alias == this.props.info.alias) {
+            if(fav.alias == this.props.info.alias || window.location.href.search('fav') != -1) {
                 this.setState({
                     color: true
                 })

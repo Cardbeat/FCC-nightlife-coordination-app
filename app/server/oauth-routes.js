@@ -11,7 +11,7 @@ router.get('/login', (req, res) => {
 // auth logout 
 router.get('/logout', (req, res) => {
     req.logout();
-    res.redirect('https://sleepy-savannah-47566.herokuapp.com/');
+    res.redirect('https://sleepy-savannah-47566.herokuapp.com');
 });
 
 
