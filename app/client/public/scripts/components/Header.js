@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
 import {Route, Link } from 'react-router-dom';
 import Favorites from './Favorites';
+import { addFavs } from '../actions/addFavs';
+import { connect } from 'react-redux';
 
 
-export default class Header extends Component {
+
+const mapDispatchToProps = dispatch => {
+    return {
+        addFavs: favs => dispatch(addFavs(favs))
+    }
+}
+
+class Header extends Component {
     constructor() {
         super()
         this.state = {
@@ -17,8 +26,9 @@ export default class Header extends Component {
             .then(res => res.json()
             .then(user => {
                 this.setState({
-                    user: user
+                    user: user.user_authenticated
                 })
+                this.props.addFavs(user.favs)
             }));
     }
 
@@ -51,3 +61,7 @@ export default class Header extends Component {
         )
     }
 }
+
+const HeaderBar = connect(null, mapDispatchToProps)(Header)
+
+export default HeaderBar

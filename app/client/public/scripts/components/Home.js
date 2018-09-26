@@ -1,6 +1,6 @@
 import React , { Component } from 'react';
 import { connect } from 'react-redux';
-import { addResults } from '../actions/index';
+import { addResults } from '../actions/addResults';
 import { Redirect } from 'react-router';
 
 const mapDispatchToProps = dispatch => {

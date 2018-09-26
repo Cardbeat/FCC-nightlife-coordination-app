@@ -8,6 +8,7 @@ const keys = require('./keys');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 const path = require('path');
+const User = require ('./db/user-model');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -41,10 +42,29 @@ app.get('/fav', function(req, res) {
   })
 
 app.get('/user', (req, res) => {
-    let user = req.isAuthenticated()
-    res.send(user);
+    let auth  = req.isAuthenticated()
+    let data = {
+        user_authenticated: auth,
+        favs: req.user.favs
+    }
+    res.send(data);
 });
 
+app.post('/user/add', (req, res) => {
+    User.findById(req.user._id, (err, user) => {
+        user.favs = [...user.favs, req.body.place]
+        user.save()
+        console.log(user.favs)
+    })
+})
+
+app.post('/user/remove' ,(req,res) => {
+    User.findById(req.user._id, (err, user) => {
+        user.favs = user.favs.filter((fav) => fav != req.body.place)
+        user.save()
+        console.log(user.favs)
+    })
+})
 
 app.use('/oauth', authRoutes);
 app.use('/yelp', yelpSearch);

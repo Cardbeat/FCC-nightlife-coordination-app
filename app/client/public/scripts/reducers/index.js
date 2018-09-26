@@ -1,4 +1,5 @@
-import { ADD_RESULTS } from "../actions/constants/action-types";
+const ADD_RESULTS = "ADD_RESULTS";
+const ADD_FAVS = "ADD_FAVS";
 
 const initialState = {
     favs: [],
@@ -12,6 +13,11 @@ const rootReducer = ( state=initialState, action ) => {
             return {
                 ...state,
                 results: action.results
+            }
+        case ADD_FAVS:
+            return {
+                ...state,
+                favs: action.favs
             }
         default:
             return state;

@@ -17,10 +17,37 @@
     width: 80%;
     padding: 10px;
     border: solid;
-    border-radius: 25px;
+    border-style: groove;
+    border-width: 0.5px;
+    border-color: gray;
+    min-width: 500px;
 }
 
-img {
-    border-radius: 50%;
-    margin-right: auto;
+#info {
+    margin: auto;
+}
+
+h6 {
+    text-align: center;
+}
+
+.banner {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+}
+
+.details {
+    margin: auto;
+    width: 40%;
+}
+
+.favorite {
+    position: relative;
+    left: 450px;
+    bottom: 80px;
+}
+
+.favorite:hover {
+    cursor: pointer;
 }

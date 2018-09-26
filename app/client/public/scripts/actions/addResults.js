@@ -1,4 +1,5 @@
-import { ADD_RESULTS } from './constants/action-types';
+
+ const ADD_RESULTS = "ADD_RESULTS";
 
 export const addResults = results => ({ 
     type: ADD_RESULTS , 

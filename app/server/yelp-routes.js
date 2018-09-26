@@ -17,6 +17,19 @@ router.post('/search', (req, res) => {
       });
 });
 
+router.get('/search/favorites', (req, res) => {
+    let favorites = req.user.favs
+    console.log(favorites)
+    let data = favorites.map(fav => {
+        client.business(fav).then(response => {
+            res.send(response.jsonBody);
+          }).catch(e => {
+            console.log(e);
+          });
+    })
+    
+});
+
 // need to search about passing data 
 // get business info and alocate at redux store 
 // change path with react router
