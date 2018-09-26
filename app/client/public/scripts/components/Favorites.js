@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Search from './Search';
 import CardList from './Card';
 
 
@@ -12,15 +11,14 @@ import CardList from './Card';
 
     }
 
-    componentDidMount() {
-        fetch('/yelp/search/favorites')
-        .then(res => res.json()
-        .then(favs => {
-            this.setState({
-                favorites: favs
-            })
-        }));
-        
+    componentWillMount() {
+        fetch('/user/favorites')
+            .then(res => res.json()
+            .then(user => {
+                this.setState({
+                    favorites: user
+                })
+            }));
     }
 
 
@@ -29,7 +27,6 @@ import CardList from './Card';
         <li key={index}>< CardList info={fav} /></li>)
         return (
             <div>
-                < Search />
                 <ul>
                     {favs}
                 </ul>

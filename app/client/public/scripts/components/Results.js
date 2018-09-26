@@ -11,6 +11,7 @@ const mapStateToProps = state => {
 
  class Results extends Component {
     render() {
+        console.log(localStorage)
         const results = this.props.results.map((result, index) =>
         <li key={index}>< CardList info={result} /></li>)
         return (

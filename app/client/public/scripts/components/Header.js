@@ -46,7 +46,7 @@ class Header extends Component {
         <div>
             <nav>
                 <div className="nav-wrapper blue darken-4">
-                    <a  className="brand-logo">NightLife</a>
+                    <a  className="brand-logo" href="/">NightLife</a>
                     <a  data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
                     <ul className="right hide-on-med-and-down">
                         {status}

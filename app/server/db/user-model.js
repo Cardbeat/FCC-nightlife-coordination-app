@@ -4,7 +4,21 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema ({
     username: String,
     googleId: String,
-    favs: [String]
+    favs: [{coordinates: {
+        longitude: Number,
+        latitude: Number
+    },
+    alias: String,
+    phone: String,
+    rating: String,
+    location: {
+        address1: String
+    },
+    image_url: String,
+    url: String,
+    review_count: String
+    }
+]
     // what save with yelds API
 });
 

@@ -11,6 +11,9 @@ const mapDispatchToProps = dispatch => {
  class SearchList extends Component  {
     constructor() {
         super()
+        this.state = {
+            lastSearch: []
+        }
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
@@ -26,7 +29,11 @@ const mapDispatchToProps = dispatch => {
                 'Content-type': 'application/json'
               }
         }).then(result => result.json().then(data => 
-            this.props.addResults(data)
+            this.props.addResults(data),
+            this.setState({
+                lastSearch: document.getElementById('data').value
+            }),
+            localStorage.setItem("lastSearch", data.city)
         ))
     }
     render() {
@@ -35,7 +42,7 @@ const mapDispatchToProps = dispatch => {
                <form onSubmit={this.handleSubmit}>
                <label>
                    search:
-                   <input id="data" type="text"  />
+                   <input id="data" type="text"  defaultValue={localStorage.getItem("lastSearch")}/>
                </label>
                <input type="submit" value="Submit" />
                </form>

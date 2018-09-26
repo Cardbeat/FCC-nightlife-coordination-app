@@ -52,18 +52,28 @@ app.get('/user', (req, res) => {
 
 app.post('/user/add', (req, res) => {
     User.findById(req.user._id, (err, user) => {
-        user.favs = [...user.favs, req.body.place]
+        user.favs = [...user.favs, req.body]
+        console.log(req.body)
         user.save()
-        console.log(user.favs)
     })
 })
 
 app.post('/user/remove' ,(req,res) => {
     User.findById(req.user._id, (err, user) => {
-        user.favs = user.favs.filter((fav) => fav != req.body.place)
+        console.log(req.body)
+        let data = [];
+        user.favs.map((el, index) => {
+            if(el.alias != req.body.alias) {
+                data.push(el)
+            }
+        })
+        user.favs = data;
         user.save()
-        console.log(user.favs)
     })
+})
+
+app.get('/user/favorites', (req, res) => {
+    res.send(req.user.favs)
 })
 
 app.use('/oauth', authRoutes);
